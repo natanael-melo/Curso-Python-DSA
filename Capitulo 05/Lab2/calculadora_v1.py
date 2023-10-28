@@ -5,6 +5,56 @@
 
 print("\n******************* Calculadora em Python *******************\n")
 
+
+def ler_numeros():
+    n1 = int(input('\nDigite o primeiro número: '))
+    n2 = int(input('Digite o segundo número: '))
+    return n1, n2
+
+
+def somar():
+    x1, x2 = ler_numeros()
+    r = x1 + x2
+    print(f'\n\t{x1} + {x2} = {r}')
+
+
+def subtrair():
+    x1, x2 = ler_numeros()
+    r = x1 - x2
+    print(f'\n\t{x1} - {x2} = {r}')
+
+
+def multiplicar():
+    x1, x2 = ler_numeros()
+    r = x1 * x2
+    print(f'\n\t{x1} * {x2} = {r}')
+
+
+def dividir():
+    x1, x2 = ler_numeros()
+    r = x1 / x2
+    print(f'\n\t{x1} / {x2} = {r}')
+
+
+def continua():
+
+    while True:
+        op = str(input('\nDeseja realizar uma nova conta (S/N): ')).upper()
+
+        if op == 'S':
+            return op
+
+        elif op == 'N':
+            return op
+
+        else:
+            print('Opção Invalida! Tente novamente')
+
+def msg_desliga():
+    print('\n******************* Desligando Calculadora *******************')
+    print('\n******************* Calculadora Desligada *******************')
+
+
 while True:
 
     # Menu
@@ -17,32 +67,30 @@ while True:
 
     op = int(input('\nDigite uma das opções acima (1/2/3/4/5): '))
 
-    if op == 5:
-        print('\n******************* Desligando Calculadora *******************')
-        print('\n******************* Calculadora Desligada *******************')
-        break
-
-    x1 = int(input('\nDigite o primeiro número: '))
-    x2 = int(input('Digite o primeiro número: '))
-
     match op:
         case 1:
-            r = x1 + x2
-            print(f'\n\t{x1} + {x2} = {r}')
+            somar()
 
         case 2:
-            r = x1 - x2
-            print(f'\n\t{x1} - {x2} = {r}')
+            subtrair()
 
         case 3:
-            r = x1 * x2
-            print(f'\n\t{x1} * {x2} = {r}')
+            multiplicar()
 
         case 4:
-            r = x1 / x2
-            print(f'\n\t{x1} / {x2} = {r}')
+            dividir()
 
-    flag = str(input('\nDeseja realizar uma nova conta (S/N): ')).upper()
+        case 5:
+            msg_desliga()
+            break
+
+        case _:
+            print('\nOpção Invalida!!!')
+
+    flag = continua()
 
     if flag == 'N':
+        msg_desliga()
         break
+
+
