@@ -55,6 +55,7 @@ def msg_desliga():
     print('\n******************* Calculadora Desligada *******************')
 
 
+# Main
 while True:
 
     # Menu
